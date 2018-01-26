@@ -16,7 +16,7 @@ The following will demonstrate the usage of the HTTP endpoints and example respo
 
 . get list of ticket types
 
----
+----
 $> curl http://localhost:8080/order/resources/orders/types | jq
 
 [
@@ -26,11 +26,11 @@ $> curl http://localhost:8080/order/resources/orders/types | jq
   "florida_residents",
   "annual_passes"
 ]
----
+----
 
 . get all orders
 
----
+----
 $> curl http://localhost:8080/order/resources/orders/ | jq
 
 {
@@ -64,16 +64,17 @@ $> curl http://localhost:8080/order/resources/orders/ | jq
     "link": "http://localhost:8080/order/resources/orders/2"
   }
 }
----
+
+----
 
 . get one order 
 
----
+----
 $> curl http://localhost:8080/order/resources/orders/1 | jq
 
 {
   "id": 1,
-  "firstname": "Evie",
+ "firstname": "Evie",
   "lastname": "Mills",
   "email": "gennaro.nicolas@gmail.com",
   "city": "Hellerbury",
@@ -83,12 +84,13 @@ $> curl http://localhost:8080/order/resources/orders/1 | jq
   "card": "*************3388",
   "exp": "12/25"
 }
----
+
+----
 
 
 . Create ticket order - all fields are besides id are required
 
----
+----
 $> curl http://localhost:8080/order/resources/orders -i -XPOST \
 -H 'Content-Type: application/json' \
 -d '{"firstname": "Dorcas", "lastname": "Howell", "email": "dorcas@gmail.com","address":"1212 main", "city": "St.Petersburg", "state": "FL", "zip": "33708-5351", "ticketType": "florida_residents", "card": "0123456789012345768", "expiration": "12/25"}'
@@ -99,6 +101,6 @@ X-Powered-By: Servlet/3.1 JSP/2.3 (Payara Server  4.1.2.173 #badassfish Java/Ora
 Location: http://localhost:8080/order/resources/orders/12
 Date: Fri, 26 Jan 2018 03:03:46 GMT
 Content-Length: 0
----
+----
 
  
