@@ -17,7 +17,7 @@ The following will demonstrate the usage of the HTTP endpoints and example respo
 . get list of ticket types
 
 ---
-$>curl http://localhost:8080/order/resources/orders/types | jq
+$> curl http://localhost:8080/order/resources/orders/types | jq
 
 [
   "theme_park",
@@ -31,7 +31,7 @@ $>curl http://localhost:8080/order/resources/orders/types | jq
 . get all orders
 
 ---
-$>curl http://localhost:8080/order/resources/orders/ | jq
+$> curl http://localhost:8080/order/resources/orders/ | jq
 
 {
     "order": {
@@ -66,11 +66,10 @@ $>curl http://localhost:8080/order/resources/orders/ | jq
 }
 ---
 
-. get one order
+. get one order 
 
 ---
- $>curl http://localhost:8080/order/resources/orders/1 | jq
-
+$> curl http://localhost:8080/order/resources/orders/1 | jq
 
 {
   "id": 1,
@@ -87,10 +86,10 @@ $>curl http://localhost:8080/order/resources/orders/ | jq
 ---
 
 
-. create order - all fields are required besides id 
+. Create ticket order - all fields are besides id are required
 
 ---
-$>curl http://localhost:8080/order/resources/orders -i -XPOST \
+$> curl http://localhost:8080/order/resources/orders -i -XPOST \
 -H 'Content-Type: application/json' \
 -d '{"firstname": "Dorcas", "lastname": "Howell", "email": "dorcas@gmail.com","address":"1212 main", "city": "St.Petersburg", "state": "FL", "zip": "33708-5351", "ticketType": "florida_residents", "card": "0123456789012345768", "expiration": "12/25"}'
 
