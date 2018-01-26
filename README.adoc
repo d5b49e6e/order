@@ -1,0 +1,109 @@
+Features
+. Created a mock database using Hashmap inside a "SessionBean" - see OrderFacade
+. Generated primarykeys - see PrimaryKeyGenerator
+. Prepopulated "database/hashmap" with Singelton (@Singleon,@Startup,@PostConstruct) - see PopulateDatabase
+. Tested on payara and wildfly application servers
+
+== Usage
+
+The following will demonstrate the usage of the HTTP endpoints and example responses.
+
+. get list of ticket types
+
+---
+
+curl http://localhost:8080/order/resources/orders/types | jq
+
+[
+  "theme_park",
+  "special_events",
+  "water_parks",
+  "florida_residents",
+  "annual_passes"
+]
+
+---
+
+. get all orders
+
+---
+
+curl http://localhost:8080/order/resources/orders/ | jq
+
+
+{
+    "order": {
+      "id": 1,
+      "firstname": "Evie",
+      "lastname": "Mills",
+      "email": "gennaro.nicolas@gmail.com",
+      "city": "Hellerbury",
+      "state": "AK",
+      "zip": "60659-9201",
+      "ticket_type": "special_events",
+      "card": "*************3388",
+      "exp": "12/25"
+    },
+    "link": "http://localhost:8080/order/resources/orders/1"
+  },
+  {
+    "order": {
+      "id": 2,
+      "firstname": "Aaliyah",
+      "lastname": "Mitchell",
+      "email": "thaddeus.roob@hotmail.com",
+      "city": "Rudolphhaven",
+      "state": "RI",
+      "zip": "86750-2558",
+      "ticket_type": "theme_park",
+      "card": "***************9190",
+      "exp": "12/25"
+    },
+    "link": "http://localhost:8080/order/resources/orders/2"
+  }
+}
+
+---
+
+. get one order
+
+---
+
+ curl http://localhost:8080/order/resources/orders/1 | jq
+
+
+{
+  "id": 1,
+  "firstname": "Evie",
+  "lastname": "Mills",
+  "email": "gennaro.nicolas@gmail.com",
+  "city": "Hellerbury",
+  "state": "AK",
+  "zip": "60659-9201",
+  "ticket_type": "special_events",
+  "card": "*************3388",
+  "exp": "12/25"
+}
+
+
+---
+
+
+. create order - all fields are required besides id 
+
+---
+
+curl http://localhost:8080/order/resources/orders -i -XPOST \
+-H 'Content-Type: application/json' \
+-d '{"firstname": "Dorcas", "lastname": "Howell", "email": "dorcas@gmail.com","address":"1212 main", "city": "St.Petersburg", "state": "FL", "zip": "33708-5351", "ticketType": "florida_residents", "card": "0123456789012345768", "expiration": "12/25"}'
+
+HTTP/1.1 201 Created
+Server: Payara Server  4.1.2.173 #badassfish
+X-Powered-By: Servlet/3.1 JSP/2.3 (Payara Server  4.1.2.173 #badassfish Java/Oracle Corporation/1.8)
+Location: http://localhost:8080/order/resources/orders/12
+Date: Fri, 26 Jan 2018 03:03:46 GMT
+Content-Length: 0
+
+---
+
+ 
