@@ -1,4 +1,4 @@
-= Ticket Order Sample REST REsource
+= Sample Rest Resource - Ticket Ordering
 
 
 == Features
