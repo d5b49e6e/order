@@ -17,7 +17,7 @@ The following will demonstrate the usage of the HTTP endpoints and example respo
 . get list of ticket types
 
 ----
-$> curl http://localhost:8080/order/resources/orders/types | jq
+$> curl http://localhost:8080/order/resources/orders/types 
 
 [
   "theme_park",
@@ -28,10 +28,10 @@ $> curl http://localhost:8080/order/resources/orders/types | jq
 ]
 ----
 
-. get all orders
+. get all orders - includes a link to the individual order
 
 ----
-$> curl http://localhost:8080/order/resources/orders/ | jq
+$> curl http://localhost:8080/order/resources/orders/ 
 
 {
     "order": {
@@ -70,7 +70,7 @@ $> curl http://localhost:8080/order/resources/orders/ | jq
 . get one order 
 
 ----
-$> curl http://localhost:8080/order/resources/orders/1 | jq
+$> curl http://localhost:8080/order/resources/orders/1 
 
 {
   "id": 1,
