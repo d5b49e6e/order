@@ -4,11 +4,13 @@
 == Features
 . Created a mock database using Hashmap inside a "SessionBean" - see OrderFacade
 
-. Generated primarykeys - see PrimaryKeyGenerator
+. Generated mock primarykeys - see PrimaryKeyGenerator
 
-. Prepopulated "database/hashmap" with Singelton (@Singleon,@Startup,@PostConstruct) - see PopulateDatabase
+. Prepopulated "database/map" with Singelton (@Singleon,@Startup,@PostConstruct) - see PopulateDatabase
 
 . Tested on payara and wildfly application servers
+
+. Show GET and POST method usage
 
 == Usage
 
